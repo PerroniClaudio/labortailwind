@@ -15,7 +15,7 @@
 
     </section>
 
-    <section class="flex flex-col lg:flex-row items-center md:mt-8">
+    <section class="flex flex-col lg:flex-row items-center md:mt-8 ">
         
         <div class="order-1 lg:order-2 relative md:w-full">
           <div class="relative lg:scale-[100%] lg:max-h-[30rem]  lg:flex   ">
@@ -98,12 +98,12 @@
         </div>
     </section>
 
-    <section class="flex flex-col lg:flex-row gap-12 items-center md:mt-16">
+    <section class="flex flex-col lg:flex-row gap-12 items-center md:mt-16 py-24">
         
         <div class="order-1 relative md:w-full">
           <div class="relative lg:scale-[100%] lg:max-h-[30rem] lg:flex">
             <img
-              src="https://dev.labormedical.it/labortailwind/views/assets/img/servizi.webp"
+              src="https://dev.labormedical.it/labortailwind/views/assets/img/ulcera.webp"
               alt=""
               class="relative w-[96%] m-0 z-10 shadow-lg shadow-gray-600 mt-4  lg:object-cover "
             />
@@ -280,13 +280,11 @@
     <section class="flex flex-col items-center w-full gap-8">
       <h1 class="text-5xl font-bold">Entra subito nel vivo dei corsi <span class="text-sky-500">con noi</span></h1>
 
-      <div class="btn bg-sky-500 p-8 text-white text-2xl rounded">Visita il nostro catalogo</div>
+      <div class="btn bg-sky-500 hover:bg-sky-600 p-8 text-white text-2xl rounded shadow-lg">Visita il nostro catalogo</div>
     </section>
 
     <div class="h-24"></div>
     
 </main>
 
-
-  
-
+<?php include('./components/footer.php'); ?>

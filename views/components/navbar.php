@@ -8,7 +8,7 @@
         <li class="text-base font-semibold cursor-pointer hover:text-blue-600">Chi siamo</li>
         <li class="text-base font-semibold cursor-pointer hover:text-blue-600">Notizie</li>
         <li class="">
-            <button class="bg-blue-600 hover:bg-blue-500 text-slate-50 p-2 rounded">Accedi</button>
+            <button class="bg-sky-600 hover:bg-sky-500 text-slate-50 p-2 rounded">Accedi</button>
         </li>
     </ul>
 
