@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+
+    .corsi-sidenav-component {
+        @apply 
+        bg-slate-50 hover:bg-sky-300
+        text-black hover:text-slate-50
+        p-4 w-full rounded 
+        flex items-center gap-2 font-semibold;
+    }
+
+    .corsi-sidenav-icon-box {
+        @apply bg-sky-200 text-sky-500 p-2 rounded w-10 h-10 flex items-center justify-center;
+    }
+
+   
+
+}
