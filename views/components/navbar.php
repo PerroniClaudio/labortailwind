@@ -1,4 +1,4 @@
-<nav class="container flex flex-row justify-between items-center px-4" id="main-nav">
+<nav class="container flex flex-row justify-between items-center lg:px-4" id="main-nav">
 
     <a href="https://dev.labormedical.it/labortailwind/views/home.php"><img src="https://labormedical.it/img/logo.png?v=1.1" alt="logo" class="h-[84px] w-[250px] "></a>
 

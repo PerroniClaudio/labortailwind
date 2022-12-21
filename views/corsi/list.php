@@ -2,13 +2,13 @@
 
 <?php include('../components/pdo.php'); ?>
 
-<div class="container px-8 lg:px-16 mx-auto">
+<div class="container px-4 lg:px-16 mx-auto">
     <?php include('../components/navbar.php'); ?>
 </div>
 
-<div class="flex gap-8 container px-8 lg:px-16 mx-auto min-h-screen">
+<div class="flex gap-8 container lg:px-16 mx-auto min-h-screen">
 
-    <aside class="flex-[1_1_0%] h-screen  lg:sticky top-0 pt-10">
+    <aside class="hidden lg:block flex-[1_1_0%] h-screen lg:sticky top-0 pt-10">
         <section class="w-full h-full flex flex-col p-4 gap-4">
             <ul class="pt-2 space-y-4 text-base lg:text-xl">
 
@@ -86,10 +86,18 @@
         </section>
     </aside>
 
-    <main class="flex-[3_1_0%] flex flex-col pt-10">
+    <main class="w-full lg:flex-[3_1_0%] flex flex-col pt-10">
 
-        <section class="flex flex-col items-stretch w-full px-4">
+        <section class="hidden lg:flex flex-col items-stretch w-full px-4">
             <h1 class="text-5xl font-bold text-center lg:text-left h-full">Catalogo corsi</h1>
+        </section>
+
+        <section class="flex lg:hidden flex-row items-center w-full px-4">
+            <h1 class="text-3xl flex-1 font-bold text-left h-full">Catalogo corsi</h1>
+
+            <a href="#" class="lg:hidden flex flex-col items-center justify-center cursor-pointer bg-sky-500 text-sky-50 p-2 rounded shadow-md" id="sidenav-filter-opener">
+                <i class="fas fa-filter"></i>
+            </a>
         </section>
 
         <section class="flex flex-col p-4 w-full"> 
@@ -121,8 +129,6 @@
                             <section class="flex-1 flex flex-col gap-2 justify-between ">
                                 <div>
                                     <p class="text-xs text-sky-500">Corso <?= $course['ctg'] ?></p>
-                                    <!-- <h3 class="text-base lg:text-xl font-bold"><?= $course['crsname'] ?></h3> -->
-                                    
                                     
                                     <h3 class="text-base lg:text-xl font-bold">
                                         <?= $course['crsname'] ?>
@@ -134,12 +140,7 @@
                                     </h3>
                                     
                                 </div>
-<!-- 
-                                <?php if($course['ecm'] != 0) { ?>
 
-                                    <span class="text-sky-500 font-bold">ECM <?= $course['ecmsave'] ?></span>
-
-                                <?php } ?> -->
 
                                 <a href="./dettaglio.php?crsno=<?= $course['crsno'] ?>" class="btn bg-sky-500 hover:bg-sky-600 text-sky-50 text-center p-2 font-semibold rounded w-full md:w-1/3 shadow-md">Dettagli</a>
                             </section>
@@ -173,3 +174,56 @@
 </div>
 
 <?php include('../components/footer.php'); ?>
+
+<!-- sidenav mobile -->
+
+<section class="w-0 fixed z-50 inset-0 lg:hidden" id="sidenav-filter-container">
+
+    <div id="sidenav-filter" class="hidden fixed inset-0 bg-white/20 backdrop-blur-sm">
+        <div class="fixed top-4 right-4 w-full max-w-xs bg-white rounded-lg shadow-lg p-6 text-base font-semibold text-slate-900 ">
+
+            <button type="button" id="sidenav-filter-dismiss" class="absolute top-5 right-5 w-8 h-8 flex items-center justify-center text-slate-500 hover:text-slate-600 " tabindex="0">
+                <i class="fas fa-times    "></i>
+                <span class="sr-only">Close navigation</span>
+            </button>
+
+            <ul class="space-y-6">
+                <li><a class="hover:text-sky-600 " href="https://dev.labormedical.it/labortailwind/views/corsi/list.php?category=FAD&sincrona=0">Corsi FAD</a></li>
+                <li><a class="hover:text-sky-600 " href="https://dev.labormedical.it/labortailwind/views/corsi/list.php?category=FAD&sincrona=1">Corsi FAD Sincrona</a></li>
+                <li><a class="hover:text-sky-600 " href="https://dev.labormedical.it/labortailwind/views/corsi/list.php?category=RES">Corsi RES</a></li>
+                <li><a class="hover:text-sky-600 " href="https://dev.labormedical.it/labortailwind/views/corsi/list.php?category=BLENDED">Corsi Blended</a></li>
+                <li><a class="hover:text-sky-600 " href="https://dev.labormedical.it/labortailwind/views/corsi/list.php?category=FSC">Corsi FSC</a></li>
+
+            </ul>
+
+        </div>
+    </div>
+
+</section>
+
+<script>
+
+    const sidenavFilterOpener = document.querySelector("#sidenav-filter-opener")
+    const sidenavFilterDismiss = document.querySelector("#sidenav-filter-dismiss")
+    const sidenavFiltercontainer = document.querySelector("#sidenav-filter-container")
+    const sidenavFilter = document.querySelector("#sidenav-filter")
+    const bodyFilter = document.querySelector("body")
+
+
+    sidenavFilterOpener.addEventListener("click", function () {
+        
+        sidenavFiltercontainer.classList.remove("w-0")
+        sidenavFilter.classList.remove("hidden")
+        bodyFilter.classList.add("overflow-hidden")
+
+    })
+
+    sidenavFilterDismiss.addEventListener("click", function () {
+        
+        sidenavFiltercontainer.classList.add("w-0")
+        sidenavFilter.classList.add("hidden")
+        bodyFilter.classList.remove("overflow-hidden")
+
+    })
+
+</script>

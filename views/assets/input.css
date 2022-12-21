@@ -16,6 +16,53 @@
         @apply bg-sky-200 text-sky-500 p-2 rounded w-10 h-10 flex items-center justify-center;
     }
 
+    .profilo-sidenav-component {
+        @apply 
+        hover:bg-slate-700
+        text-slate-300
+        p-1 w-full rounded 
+        flex items-center gap-1 cursor-pointer;
+        
+    }
+
+    .profilo-sidenav-icon-box {
+        @apply  text-slate-300 p-2 rounded w-10 h-10 flex items-center justify-center;
+    }
+
+    .profilo-sub-component {
+        @apply 
+        hover:bg-slate-800 
+        text-slate-800 hover:text-slate-300
+        p-2
+        w-full rounded 
+        flex items-center gap-1 cursor-pointer;
+        
+    }
+
+    .profilo-sub-icon-box {
+        @apply 
+        text-slate-300 group-hover:text-slate-800
+        bg-slate-800 group-hover:bg-slate-200
+        p-2 rounded w-10 h-10 flex items-center justify-center;
+    }
+   
+    .profilo-sub-component.selected {
+        @apply 
+        bg-slate-800 
+        text-slate-300
+        p-2
+        w-full rounded 
+        flex items-center gap-1 cursor-pointer;
+        
+    }
+
+    .profilo-sub-icon-box.selected {
+        @apply 
+        text-slate-800
+        bg-slate-200
+        p-2 rounded w-10 h-10 flex items-center justify-center;
+    }
+
    
 
 }

@@ -1,6 +1,6 @@
 <?php include('../components/head.php'); ?>
 <?php include('../components/pdo.php'); ?>
-<?php include('../components/accordion-item.php'); ?>
+<?php include('../components/AccordionItem.php'); ?>
 
 <?php 
 
