@@ -22,8 +22,21 @@ function ProfiloCourseCard($course) {
 
             ";
     
-            $video = "<a href=\"https://dev.labormedical.it/labortailwind/views/corsi/player.php?crsno={$course['crsno']}\" class=\"btn bg-sky-500 hover:bg-sky-600 text-sky-50 text-center p-2 font-semibold rounded w-full md:w-1/3 shadow-md\">Visualizza corso</a>";
-        } 
+        } else if ($course['sincrona'] == 1) {
+
+            $progress = "
+        
+                <div class=\"w-full  rounded-full h-2 bg-slate-300\">
+                    <div class=\"bg-sky-600 h-2 rounded-full\" style=\"width: {$course['partecipazione_perc']}%\"></div>
+                </div>
+
+            ";
+
+
+        }
+
+        $video = "<a href=\"https://dev.labormedical.it/labortailwind/views/corsi/player.php?crsno={$course['crsno']}\" class=\"btn bg-sky-500 hover:bg-sky-600 text-sky-50 text-center p-2 font-semibold rounded w-full md:w-1/3 shadow-md\">Visualizza corso</a>";
+
 
     } 
 
@@ -33,9 +46,9 @@ function ProfiloCourseCard($course) {
 
         <article class=\"bg-slate-50 p-4 w-full rounded shadow-md flex flex-col items-center md:items-stretch md:flex-row gap-4 \">
 
-            <img src=\"$img_url\" class=\"w-3/4 h-full md:w-1/4 rounded shadow-md\" alt=\"{$course['crsname']}\">
+            <img src=\"$img_url\" class=\"w-3/4 md:h-36 md:w-1/4 rounded shadow-md\" alt=\"{$course['crsname']}\">
 
-            <section class=\"flex-1 flex flex-col gap-2 justify-between\">
+            <section class=\"w-full lg:flex-1 flex flex-col gap-2 justify-between\">
                 <div>
                     
                     <h3 class=\"text-base lg:text-xl font-bold\">
@@ -54,6 +67,3 @@ function ProfiloCourseCard($course) {
     ";
 
 }
-
-// <img src=\"https://dev.labormedical.it/courses/{$course['crsno']}/crsdet.jpg\" class=\"w-full rounded shadow-md\" alt=\"{$course['crsname']}\">
-

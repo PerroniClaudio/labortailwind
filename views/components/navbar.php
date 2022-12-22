@@ -45,27 +45,6 @@
 
 <script>
 
-    const sidenavopener = document.querySelector("#sidenav-opener")
-    const sidenavdismiss = document.querySelector("#sidenav-dismiss")
-    const container = document.querySelector("#sidenav-container")
-    const sidenav = document.querySelector("#sidenav")
-    const body = document.querySelector("body")
-
-
-    sidenavopener.addEventListener("click", function () {
-        
-        container.classList.remove("w-0")
-        sidenav.classList.remove("hidden")
-        body.classList.add("overflow-hidden")
-
-    })
-
-    sidenavdismiss.addEventListener("click", function () {
-        
-        container.classList.add("w-0")
-        sidenav.classList.add("hidden")
-        body.classList.remove("overflow-hidden")
-
-    })
+    sidenavModal("sidenav")
 
 </script>

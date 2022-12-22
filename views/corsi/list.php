@@ -1,6 +1,6 @@
 <?php include('../components/head.php'); ?>
-
 <?php include('../components/pdo.php'); ?>
+<?php include('../components/SidenavModal.php'); ?>
 
 <div class="container px-4 lg:px-16 mx-auto">
     <?php include('../components/navbar.php'); ?>
@@ -175,6 +175,8 @@
 
 <?php include('../components/footer.php'); ?>
 
+
+
 <!-- sidenav mobile -->
 
 <section class="w-0 fixed z-50 inset-0 lg:hidden" id="sidenav-filter-container">
@@ -203,27 +205,6 @@
 
 <script>
 
-    const sidenavFilterOpener = document.querySelector("#sidenav-filter-opener")
-    const sidenavFilterDismiss = document.querySelector("#sidenav-filter-dismiss")
-    const sidenavFiltercontainer = document.querySelector("#sidenav-filter-container")
-    const sidenavFilter = document.querySelector("#sidenav-filter")
-    const bodyFilter = document.querySelector("body")
-
-
-    sidenavFilterOpener.addEventListener("click", function () {
-        
-        sidenavFiltercontainer.classList.remove("w-0")
-        sidenavFilter.classList.remove("hidden")
-        bodyFilter.classList.add("overflow-hidden")
-
-    })
-
-    sidenavFilterDismiss.addEventListener("click", function () {
-        
-        sidenavFiltercontainer.classList.add("w-0")
-        sidenavFilter.classList.add("hidden")
-        bodyFilter.classList.remove("overflow-hidden")
-
-    })
+    sidenavModal("sidenav-filter")
 
 </script>

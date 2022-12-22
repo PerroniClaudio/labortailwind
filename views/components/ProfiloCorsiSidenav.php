@@ -26,7 +26,7 @@
 ?>
 
 
-<section class="w-full h-screen bg-slate-200 shadow-md flex flex-col  p-4">
+<section class="w-full h-screen bg-slate-200 shadow-md hidden lg:flex lg:flex-col  p-4">
 
     <ul class="space-y-2">
         <li>

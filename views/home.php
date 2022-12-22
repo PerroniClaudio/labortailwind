@@ -1,5 +1,5 @@
 <?php include('./components/head.php'); ?>
-
+<?php include('./components/SidenavModal.php'); ?>
   
 
   <main class="container flex flex-col items-center px-16 mx-auto space-y-10">

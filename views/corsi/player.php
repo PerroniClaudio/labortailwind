@@ -17,6 +17,12 @@
 
 <main>
 
+    <?php 
+
+        if($course['sincrona'] == 0) {
+    
+    ?>
+
     <video class="w-full lg:h-[80vh] bg-slate-900" controls controlsList="nodownload noplaybackrate" disablePictureInPicture defaultPlaybackRate="1" >
         <source src="https://dev.labormedical.it/labormedical.it/public/courses/<?= $_GET['crsno']?>/<?= $_GET['crsno']?>_vid_lm_vvv.mp4"" type="video/mp4">
     </video>
@@ -42,6 +48,27 @@
             ?>
 
     </div>
+
+    <?php 
+
+        } else {
+
+            $sql_live = "SELECT * FROM courses_live WHERE crsno = :crsno";
+            $statement_live = $db->prepare($sql_live);
+            $statement_live->execute(array("crsno" =>  $_GET['crsno']));
+            $live = $statement_live->fetch();
+
+            ?>
+
+            <video class="w-full lg:h-[80vh] bg-slate-900" controls controlsList="nodownload noplaybackrate" disablePictureInPicture defaultPlaybackRate="1" >
+                <source src="https://dev.labormedical.it/labormedical.it/public/courses/<?= $_GET['crsno']?>/live_<?= $live['live_id'] ?>/video.mp4"" type="video/mp4">
+            </video>
+
+            <?php
+
+        }
+                
+    ?>
 
     <section class="container p-4 lg:p-8 flex flex-col lg:flex-row lg:gap-4 mx-auto">
 
