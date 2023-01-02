@@ -4,12 +4,12 @@
 
                 <ul class="space-y-2">
                     <li>
-                        <a class="profilo-sidenav-component group">
+                        <a href="https://dev.labormedical.it/labortailwind/views/utente/corsi.php?tipo=FAD&sincrona=0" class="profilo-sidenav-component group">
                             <div class="profilo-sidenav-icon-box" id="sidenav-corsi-opener">
                                 <i class="fas fa-laptop "></i> 
                             </div>
                             
-                            <span class="hidden lg:block">I miei corsi</span></span>
+                            <span class="hidden lg:block">I miei corsi</span>
                         </a>
                     </li>
                     <li>
@@ -18,25 +18,25 @@
                                 <i class="fas fa-file-certificate "></i> 
                             </div>
                             
-                            <span class="hidden lg:block">I miei attestati</span></span>
+                            <span class="hidden lg:block">I miei attestati</span>
                         </a>
                     </li>
                     <li>
-                        <a class="profilo-sidenav-component group">
+                        <a href="https://dev.labormedical.it/labortailwind/views/utente/fatture.php?anno=<?= date("Y") ?>" class="profilo-sidenav-component group">
                             <div class="profilo-sidenav-icon-box">
                                 <i class="fas fa-file-invoice "></i> 
                             </div>
                             
-                            <span class="hidden lg:block">Le mie fatture</span></span>
+                            <span class="hidden lg:block">Le mie fatture</span>
                         </a>
                     </li>
                     <li>
-                        <a class="profilo-sidenav-component group">
+                        <a href="https://dev.labormedical.it/labortailwind/views/utente/profilo.php?tipo=personali" class="profilo-sidenav-component group">
                             <div class="profilo-sidenav-icon-box">
                                 <i class="fas fa-user "></i> 
                             </div>
                             
-                            <span class="hidden lg:block">Il mio profilo</span></span>
+                            <span class="hidden lg:block">Il mio profilo</span>
                         </a>
                     </li>
                 </ul>

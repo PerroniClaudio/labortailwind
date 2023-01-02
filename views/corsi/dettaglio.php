@@ -1,6 +1,7 @@
 <?php include('../components/head.php'); ?>
 <?php include('../components/pdo.php'); ?>
 <?php include('../components/AccordionItem.php'); ?>
+<?php include('../components/SidenavModal.php'); ?>
 
 <?php 
 
@@ -18,7 +19,7 @@
 
     <main class="container grid grid-cols-12 lg:gap-4 px-8 lg:px-16 mx-auto min-h-screen">
 
-        <aside class="self-start sticky top-0 col-span-12 lg:col-span-3 py-4">
+        <aside class="self-start lg:sticky top-0 col-span-12 lg:col-span-3 py-4">
             <section class="w-full flex flex-col bg-white shadow-lg rounded p-4 gap-4 mb-3">
 
                 <img src="https://labormedical.it/courses/<?= $_GET['crsno'] ?>/crsdet.jpg" class="w-full rounded shadow-md" alt="">

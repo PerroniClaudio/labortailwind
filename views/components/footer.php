@@ -30,8 +30,8 @@
                 <p class="text-semibold text-xl text-slate-50">Iscrizione newsletter</p>
 
                 <div class="form-group flex flex-col gap-4">
-                    <input type="text" name="" class="w-full rounded p-2" id="" placeholder="Nome e cognome">
-                    <input type="email" name="" class="w-full rounded p-2" id="" placeholder="E-mail">
+                    <input type="text" name="" class="w-full rounded p-2" id="nome-newsleter" placeholder="Nome e cognome">
+                    <input type="email" name="" class="w-full rounded p-2" id="mail-newsletter" placeholder="E-mail">
                 </div>
 
                 <div>            

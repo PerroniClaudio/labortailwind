@@ -6,7 +6,7 @@
 
 <?php 
 
-    $uid = 6004;
+    $uid = 9689;
 
     $sql = "SELECT * FROM users WHERE uid = :uid";
     $statement = $db->prepare($sql);

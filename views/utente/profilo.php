@@ -93,6 +93,7 @@
 
 
                         </article>
+                        <article class="form-element flex flex-col group"></article>
                         
                         <article class="form-element flex flex-col group">
 
@@ -107,8 +108,60 @@
 
 
                         </article>
+                        
+                        <article class="form-element flex flex-col group">
+
+                            <div class="flex-[1_1_0%] flex flex-col gap-2">
+                                <label for="comune">Comune</label>
+                                <input type="text" id="cerca-comune" placeholder="Cerca comune..." disabled>
+                            </div>
+                            
+                            <select name="" id="comune" disabled>
+                                <option value="0">Scegli</option>
+                            </select>
+
+
+                        </article>
+                        
+                        <article class="form-element flex flex-col group">
+
+                            <div class="flex-[1_1_0%] flex flex-col gap-2">
+                                <label for="cap">Cap</label>
+                                <input type="text" id="cap" disabled>
+                            </div>
+
+                        </article>
+                        
+                        <article class="form-element flex flex-col group">
+
+                            <div class="flex-[1_1_0%] flex flex-col gap-2">
+                                <label for="ind">Indirizzo</label>
+                                <input type="text" id="ind">
+                            </div>
+
+                        </article>
+
+                        <article class="form-element flex flex-col group">
+
+                            <div class="flex-[1_1_0%] flex flex-col gap-2">
+                                <label for="cel">Cellulare</label>
+                                <input type="text" id="cel">
+                            </div>
+
+                        </article>
+
+                        <article class="form-element flex flex-col group">
+
+                            <div class="flex-[1_1_0%] flex flex-col gap-2">
+                                <label for="tel">Recapito telefonico</label>
+                                <input type="text" id="tel">
+                            </div>
+
+                        </article>
 
                     </div>
+
+                    <button class="btn bg-sky-500 text-center p-4 rounded text-sky-50 font-semibold w-full md:w-1/4">Salva</button>
 
                     <script>
 
@@ -157,6 +210,11 @@
                                 if(cerca.length > 2) {
 
                                     select.innerHTML = ""
+
+                                    let defaultOption = document.createElement('option');
+                                    defaultOption.value = "0";
+                                    defaultOption.innerHTML = "Scegli";
+                                    select.appendChild(defaultOption);
                                     
                                     let result = fullList.filter( element =>  element.toUpperCase().includes(cerca.toUpperCase()) ).forEach(element => {
                                         
@@ -179,6 +237,41 @@
 
                         }
                        
+                        const provinciaSelector = document.querySelector("#provincia")
+                        provinciaSelector.addEventListener("change", function() {
+                            let provincia = this.value
+
+                            const params = new URLSearchParams({provincia})
+                            const url = `https://dev.labormedical.it/labortailwind/api/getComuniListByProvincia.php?${params}`
+                            
+                            fetch(url)
+                            .then(data => data.json())
+                            .then(res => {
+                                const cercaInput = document.querySelector(`#cerca-comune`)
+                                cercaInput.disabled = false
+                                selectWithSearch("comune", res.comuni)
+                            })
+                            .catch(e => console.log(e))
+                        })
+
+                        const comuneSelector = document.querySelector("#comune")
+                        comuneSelector.addEventListener("change", function() {
+
+                            let comune = this.value
+
+                            const params = new URLSearchParams({comune})
+                            const url = `https://dev.labormedical.it/labortailwind/api/getCapByComune.php?${params}`
+
+                            fetch(url)
+                            .then(data => data.json())
+                            .then(res => {
+                               let capInput = document.querySelector("#cap")
+                               capInput.value = res.cap
+                            })
+                            .catch(e => console.log(e))
+
+                        })
+
 
 
                     </script>
@@ -187,7 +280,88 @@
 
                     break;
                 case 'accesso': 
-                        $accesso_selected = "selected";
+                        ?>
+
+                        <div class="form-group grid grid-cols-2 gap-4">
+                            <article class="form-element flex flex-col group">
+
+                                <div class="flex-[1_1_0%] flex flex-col gap-2">
+                                    <label for="username">Username</label>
+                                    <input type="text" id="username" disabled>
+                                </div>
+
+                            </article>
+
+                            <article class="form-element flex flex-col group">
+
+                                <div class="flex-[1_1_0%] flex flex-col gap-2">
+                                    <label for="password">Password</label>
+                                    <input type="password" id="password" disabled>
+                                </div>
+
+                            </article>
+
+                            
+                        </div>
+
+                        <button class="btn bg-transparent text-center p-2 rounded text-sky-500 font-semibold w-full" id="cambia-password">Vuoi modificare la tua password?</button>
+
+                        <div class="form-group hidden grid-cols-2 gap-4" id="cambia-password-container">
+
+                            <article class="form-element flex flex-col group">
+
+                                <div class="flex-[1_1_0%] flex flex-col gap-2">
+                                    <label for="newpassword">Nuova password</label>
+                                    <input type="password" autocomplete="new-password" id="newpassword">
+                                </div>
+
+                            </article>
+
+                            <article class="form-element flex flex-col group">
+
+                                <div class="flex-[1_1_0%] flex flex-col gap-2">
+                                    <label for="repeatpassword">Ripeti password</label>
+                                    <input type="password" autocomplete="new-password" id="repeatpassword" >
+                                </div>
+
+                            </article>
+
+                            <div></div>
+
+                            <article class="flex flex-row-reverse ">
+                                <button class="btn bg-sky-500 text-center p-4 rounded text-sky-50 font-semibold w-full md:w-1/4">Salva</button>
+                            </article>
+                            
+                        </div>
+
+                        <script>
+
+                            const btnOpener = document.querySelector("#cambia-password")
+                            btnOpener.addEventListener("click", function() {
+
+                                const container = document.querySelector("#cambia-password-container")
+                                container.classList.remove("hidden")
+                                container.classList.add("grid")
+
+                            })
+
+                            const passwordInput = document.querySelector("#repeatpassword")
+                            passwordInput.addEventListener("keyup", function () {
+
+                                const repeatInput = document.querySelector("#newpassword")
+
+                          
+
+                                if(repeatInput.value != passwordInput.value) {
+                                    passwordInput.classList.add("invalid")
+                                } else {
+                                    passwordInput.classList.remove("invalid")
+                                }
+
+                            })
+
+                        </script>
+                        <?php
                     break;
                 case 'professionali': 
                         $professionali_selected = "selected";

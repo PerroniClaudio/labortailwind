@@ -92,4 +92,16 @@
         focus:text-gray-700 focus:bg-white focus:border-sky-400 focus:outline-none
     }
 
+    .form-element input:disabled, .form-element select:disabled {
+        @apply 
+        bg-slate-100
+    }
+
+    .form-element input.invalid {
+        @apply
+        border border-solid border-red-500
+        focus:text-gray-700 focus:bg-white focus:border-red-500 focus:outline-none
+    }
+
+
 }

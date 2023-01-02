@@ -8,7 +8,7 @@
         <li class="text-lg font-semibold cursor-pointer hover:text-sky-600"><a href="https://dev.labormedical.it/labortailwind/views/home.php#chi-siamo">Chi siamo</a></li>
         <li class="text-lg font-semibold cursor-pointer hover:text-sky-600">Notizie</li>
         <li class="">
-            <button class="bg-sky-600 hover:bg-sky-500 text-slate-50 p-2 rounded">Accedi</button>
+            <a href="https://dev.labormedical.it/labortailwind/views/utente/corsi.php?tipo=FAD&sincrona=0" class="bg-sky-600 hover:bg-sky-500 w-full text-slate-50 p-2 rounded">Accedi</a>
         </li>
     </ul>
 
@@ -34,7 +34,7 @@
                 <li><a class="hover:text-sky-600 " href="https://dev.labormedical.it/labortailwind/views/home.php#chi-siamo">Chi siamo</a></li>
                 <li><a class="hover:text-sky-600 " href="#">Notizie</a></li>
                 <li class="">
-                    <button class="bg-sky-600 hover:bg-sky-500 w-full text-slate-50 p-2 rounded">Accedi</button>
+                    <a href="https://dev.labormedical.it/labortailwind/views/utente/corsi.php?tipo=FAD&sincrona=0" class="bg-sky-600 hover:bg-sky-500 w-full text-slate-50 p-2 rounded">Accedi</a>
                 </li>
             </ul>
 

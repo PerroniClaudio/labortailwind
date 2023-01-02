@@ -120,13 +120,79 @@
 
                 if($statement->rowCount() > 0) {
 
-                    while($course = $statement->fetch()) { ?>
+                    $evidenza_counter = 0;
+                    $corsi_evidenza = [];
+                    $corsi_altri = [];
+
+                    while($course = $statement->fetch()) { 
+
+                        if($evidenza_counter < 3) {
+
+                            $corsi_evidenza[] = $course;
+
+                            $evidenza_counter++;
+
+                        } else {
+
+                            $corsi_altri[] = $course;
+
+                        }
+
+                    }
+
+                    ?>
+
+                    
+
+                    <section class="grid grid-cols-1 lg:grid-cols-3 gap-2">
+
+                        <?php
+
+                        foreach($corsi_evidenza as $course) {
+
+                            $text_size = strlen($course['crsname']) > 60 ? "text-base" : "text-lg";
+
+                            ?>
+                                <article class="bg-slate-50 p-4 rounded shadow-md flex flex-col gap-4 mb-2">
+
+                                    <section class="order-2 lg:h-24">
+                                        <p class="text-xs text-sky-500">Corso <?= $course['ctg'] ?></p>
+                                        
+                                        <h3 class="text-base lg:<?= $text_size ?> font-bold">
+                                            <?= $course['crsname'] ?>
+                                            <?php if($course['ecm'] != 0) { ?>
+                                                <span class="bg-sky-200 text-sky-500 text-sm rounded-full py-1 px-2"><i class="far fa-tags"></i><span> ECM <?= $course['ecmsave'] ?></span></span>
+                                            <?php } else { ?>
+                                                <span class="bg-green-200 text-green-500 text-sm rounded-full py-1 px-2"><i class="far fa-times-circle"></i><span> NON ECM</span></span>
+                                            <?php } ?>
+                                        </h3>
+                                    </section>
+
+                                    <img src="https://labormedical.it/courses/<?= $course['crsno'] ?>/crsdet.jpg" class="order-1 w-full rounded shadow-md aspect-video" alt="">
+
+                                    <a href="./dettaglio.php?crsno=<?= $course['crsno'] ?>" class="order-3 btn bg-sky-500 hover:bg-sky-600 text-sky-50 text-center p-2 font-semibold rounded w-full shadow-md">Dettagli</a>
+
+                                </article>
+                            <?php
+                        }
+
+                        ?>
+
+                    </section>
+
+                   
+
+                    <?php
+
+                    foreach($corsi_altri as $course) {
+
+                        ?>
 
                         <article class="bg-slate-50 p-4 w-full rounded shadow-md flex flex-col items-center md:items-stretch md:flex-row gap-4 mb-2">
 
-                            <img src="https://labormedical.it/courses/<?= $course['crsno'] ?>/crsdet.jpg" class="w-3/4 md:w-1/4 rounded shadow-md" alt="">
+                            <img src="https://labormedical.it/courses/<?= $course['crsno'] ?>/crsdet.jpg" class="w-full aspect-video md:aspect-auto md:w-1/4 rounded shadow-md" alt="">
 
-                            <section class="flex-1 flex flex-col gap-2 justify-between ">
+                            <section class="w-full lg:flex-1 flex flex-col gap-2 justify-between ">
                                 <div>
                                     <p class="text-xs text-sky-500">Corso <?= $course['ctg'] ?></p>
                                     
@@ -148,9 +214,10 @@
                         </article>
 
 
-                    <?php
+                        <?php
 
                     }
+
 
                 } else {
 
